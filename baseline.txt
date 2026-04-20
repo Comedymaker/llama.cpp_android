@@ -1,0 +1,3 @@
+--no-conversation is not supported by llama-cli
+please use llama-completion instead
+[0m
