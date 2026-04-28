@@ -1,0 +1,516 @@
+{
+  "results": {
+    "current_tree": [
+      {
+        "prompt": "Explain LRU cache briefly.",
+        "returncode": 0,
+        "tokens_s": 6.788,
+        "decode_s": 2.357,
+        "n_rounds": 6.0,
+        "n_predict": 16.0,
+        "n_drafted": 17.0,
+        "n_accept": 10.0,
+        "accept": 58.824,
+        "draft_ms_total": 885.012,
+        "verify_ms_total": 1471.622,
+        "total_ms_rounds": 2357.212,
+        "verify_per_100tok": 37.5,
+        "avg_branch_per_round": 1.833,
+        "avg_tree_tokens_per_round": 2.833,
+        "tree_replay_ms_total": 857.527,
+        "tree_expand_ms_total": 26.342,
+        "tree_flatten_ms_total": 0.008,
+        "tree_verify_only_ms_total": 1458.965,
+        "tree_select_ms_total": 0.0,
+        "tree_sync_ms_total": 0.183,
+        "avg_proposed_len": 2.8333333333333335,
+        "avg_accepted_len": 1.6666666666666667,
+        "avg_draft_ms": 147.50199999999998,
+        "avg_verify_ms": 245.27033333333335,
+        "avg_total_ms": 392.8686666666667,
+        "avg_tree_replay_ms": 142.92116666666666,
+        "avg_tree_expand_ms": 4.390333333333333,
+        "avg_tree_flatten_ms": 0.0013333333333333333,
+        "avg_tree_verify_only_ms": 243.16083333333333,
+        "avg_tree_select_ms": 0.0,
+        "avg_tree_sync_ms": 0.0305
+      },
+      {
+        "prompt": "Summarize how DNS caching works in simple terms.",
+        "returncode": 0,
+        "tokens_s": 6.561,
+        "decode_s": 2.591,
+        "n_rounds": 8.0,
+        "n_predict": 17.0,
+        "n_drafted": 19.0,
+        "n_accept": 9.0,
+        "accept": 47.368,
+        "draft_ms_total": 1013.172,
+        "verify_ms_total": 1577.095,
+        "total_ms_rounds": 2590.934,
+        "verify_per_100tok": 47.059,
+        "avg_branch_per_round": 1.75,
+        "avg_tree_tokens_per_round": 2.375,
+        "tree_replay_ms_total": 978.367,
+        "tree_expand_ms_total": 33.021,
+        "tree_flatten_ms_total": 0.009,
+        "tree_verify_only_ms_total": 1560.905,
+        "tree_select_ms_total": 0.0,
+        "tree_sync_ms_total": 0.323,
+        "avg_proposed_len": 2.375,
+        "avg_accepted_len": 1.125,
+        "avg_draft_ms": 126.6465,
+        "avg_verify_ms": 197.136875,
+        "avg_total_ms": 323.86675,
+        "avg_tree_replay_ms": 122.295875,
+        "avg_tree_expand_ms": 4.127625,
+        "avg_tree_flatten_ms": 0.001125,
+        "avg_tree_verify_only_ms": 195.113125,
+        "avg_tree_select_ms": 0.0,
+        "avg_tree_sync_ms": 0.040375
+      },
+      {
+        "prompt": "Write a short paragraph comparing mutex and semaphore.",
+        "returncode": 0,
+        "tokens_s": 6.461,
+        "decode_s": 2.786,
+        "n_rounds": 8.0,
+        "n_predict": 18.0,
+        "n_drafted": 19.0,
+        "n_accept": 10.0,
+        "accept": 52.632,
+        "draft_ms_total": 1212.214,
+        "verify_ms_total": 1573.111,
+        "total_ms_rounds": 2785.832,
+        "verify_per_100tok": 44.444,
+        "avg_branch_per_round": 1.5,
+        "avg_tree_tokens_per_round": 2.375,
+        "tree_replay_ms_total": 1177.65,
+        "tree_expand_ms_total": 32.571,
+        "tree_flatten_ms_total": 0.006,
+        "tree_verify_only_ms_total": 1560.042,
+        "tree_select_ms_total": 0.0,
+        "tree_sync_ms_total": 0.291,
+        "avg_proposed_len": 2.375,
+        "avg_accepted_len": 1.25,
+        "avg_draft_ms": 151.52675,
+        "avg_verify_ms": 196.638875,
+        "avg_total_ms": 348.229,
+        "avg_tree_replay_ms": 147.20625,
+        "avg_tree_expand_ms": 4.071375,
+        "avg_tree_flatten_ms": 0.00075,
+        "avg_tree_verify_only_ms": 195.00525,
+        "avg_tree_select_ms": 0.0,
+        "avg_tree_sync_ms": 0.036375
+      }
+    ],
+    "strict_limited_tree": [
+      {
+        "prompt": "Explain LRU cache briefly.",
+        "returncode": 0,
+        "tokens_s": 10.265,
+        "decode_s": 1.559,
+        "n_rounds": 8.0,
+        "n_predict": 16.0,
+        "n_drafted": 11.0,
+        "n_accept": 8.0,
+        "accept": 72.727,
+        "draft_ms_total": 497.158,
+        "verify_ms_total": 1060.958,
+        "total_ms_rounds": 1558.69,
+        "verify_per_100tok": 50.0,
+        "avg_branch_per_round": 1.375,
+        "avg_tree_tokens_per_round": 1.375,
+        "tree_replay_ms_total": 481.546,
+        "tree_expand_ms_total": 14.91,
+        "tree_flatten_ms_total": 0.006,
+        "tree_verify_only_ms_total": 1049.037,
+        "tree_select_ms_total": 0.001,
+        "tree_sync_ms_total": 0.366,
+        "avg_proposed_len": 1.375,
+        "avg_accepted_len": 1.0,
+        "avg_draft_ms": 62.14475,
+        "avg_verify_ms": 132.61975,
+        "avg_total_ms": 194.83625,
+        "avg_tree_replay_ms": 60.19325,
+        "avg_tree_expand_ms": 1.86375,
+        "avg_tree_flatten_ms": 0.00075,
+        "avg_tree_verify_only_ms": 131.129625,
+        "avg_tree_select_ms": 0.000125,
+        "avg_tree_sync_ms": 0.04575
+      },
+      {
+        "prompt": "Summarize how DNS caching works in simple terms.",
+        "returncode": 0,
+        "tokens_s": 8.093,
+        "decode_s": 1.977,
+        "n_rounds": 9.0,
+        "n_predict": 16.0,
+        "n_drafted": 15.0,
+        "n_accept": 7.0,
+        "accept": 46.667,
+        "draft_ms_total": 828.476,
+        "verify_ms_total": 1147.84,
+        "total_ms_rounds": 1976.997,
+        "verify_per_100tok": 56.25,
+        "avg_branch_per_round": 1.667,
+        "avg_tree_tokens_per_round": 1.667,
+        "tree_replay_ms_total": 807.894,
+        "tree_expand_ms_total": 19.409,
+        "tree_flatten_ms_total": 0.008,
+        "tree_verify_only_ms_total": 1132.706,
+        "tree_select_ms_total": 0.002,
+        "tree_sync_ms_total": 0.333,
+        "avg_proposed_len": 1.6666666666666667,
+        "avg_accepted_len": 0.7777777777777778,
+        "avg_draft_ms": 92.05288888888889,
+        "avg_verify_ms": 127.53777777777776,
+        "avg_total_ms": 219.66633333333334,
+        "avg_tree_replay_ms": 89.766,
+        "avg_tree_expand_ms": 2.1565555555555553,
+        "avg_tree_flatten_ms": 0.0008888888888888889,
+        "avg_tree_verify_only_ms": 125.85622222222221,
+        "avg_tree_select_ms": 0.00022222222222222223,
+        "avg_tree_sync_ms": 0.037000000000000005
+      },
+      {
+        "prompt": "Write a short paragraph comparing mutex and semaphore.",
+        "returncode": 0,
+        "tokens_s": 4.727,
+        "decode_s": 3.385,
+        "n_rounds": 9.0,
+        "n_predict": 16.0,
+        "n_drafted": 11.0,
+        "n_accept": 7.0,
+        "accept": 63.636,
+        "draft_ms_total": 776.478,
+        "verify_ms_total": 2602.684,
+        "total_ms_rounds": 3384.88,
+        "verify_per_100tok": 56.25,
+        "avg_branch_per_round": 1.222,
+        "avg_tree_tokens_per_round": 1.222,
+        "tree_replay_ms_total": 753.713,
+        "tree_expand_ms_total": 21.696,
+        "tree_flatten_ms_total": 0.008,
+        "tree_verify_only_ms_total": 2590.75,
+        "tree_select_ms_total": 0.001,
+        "tree_sync_ms_total": 0.272,
+        "avg_proposed_len": 1.2222222222222223,
+        "avg_accepted_len": 0.7777777777777778,
+        "avg_draft_ms": 86.27533333333332,
+        "avg_verify_ms": 289.1871111111111,
+        "avg_total_ms": 376.09777777777776,
+        "avg_tree_replay_ms": 83.74588888888889,
+        "avg_tree_expand_ms": 2.4106666666666667,
+        "avg_tree_flatten_ms": 0.0008888888888888889,
+        "avg_tree_verify_only_ms": 287.8611111111111,
+        "avg_tree_select_ms": 0.00011111111111111112,
+        "avg_tree_sync_ms": 0.030222222222222223
+      }
+    ],
+    "high_uncertainty_tree": [
+      {
+        "prompt": "Explain LRU cache briefly.",
+        "returncode": 0,
+        "tokens_s": 9.389,
+        "decode_s": 1.917,
+        "n_rounds": 7.0,
+        "n_predict": 18.0,
+        "n_drafted": 17.0,
+        "n_accept": 11.0,
+        "accept": 64.706,
+        "draft_ms_total": 855.326,
+        "verify_ms_total": 1060.833,
+        "total_ms_rounds": 1917.177,
+        "verify_per_100tok": 38.889,
+        "avg_branch_per_round": 1.429,
+        "avg_tree_tokens_per_round": 2.429,
+        "tree_replay_ms_total": 822.561,
+        "tree_expand_ms_total": 30.514,
+        "tree_flatten_ms_total": 0.007,
+        "tree_verify_only_ms_total": 1046.582,
+        "tree_select_ms_total": 0.002,
+        "tree_sync_ms_total": 0.658,
+        "avg_proposed_len": 2.4285714285714284,
+        "avg_accepted_len": 1.5714285714285714,
+        "avg_draft_ms": 122.18942857142858,
+        "avg_verify_ms": 151.54757142857144,
+        "avg_total_ms": 273.88242857142853,
+        "avg_tree_replay_ms": 117.50871428571429,
+        "avg_tree_expand_ms": 4.359142857142857,
+        "avg_tree_flatten_ms": 0.001,
+        "avg_tree_verify_only_ms": 149.5117142857143,
+        "avg_tree_select_ms": 0.00028571428571428574,
+        "avg_tree_sync_ms": 0.094
+      },
+      {
+        "prompt": "Summarize how DNS caching works in simple terms.",
+        "returncode": 0,
+        "tokens_s": 6.613,
+        "decode_s": 2.571,
+        "n_rounds": 8.0,
+        "n_predict": 17.0,
+        "n_drafted": 17.0,
+        "n_accept": 9.0,
+        "accept": 52.941,
+        "draft_ms_total": 1346.099,
+        "verify_ms_total": 1223.609,
+        "total_ms_rounds": 2570.352,
+        "verify_per_100tok": 47.059,
+        "avg_branch_per_round": 1.125,
+        "avg_tree_tokens_per_round": 2.125,
+        "tree_replay_ms_total": 1303.661,
+        "tree_expand_ms_total": 39.958,
+        "tree_flatten_ms_total": 0.007,
+        "tree_verify_only_ms_total": 1212.395,
+        "tree_select_ms_total": 0.001,
+        "tree_sync_ms_total": 0.26,
+        "avg_proposed_len": 2.125,
+        "avg_accepted_len": 1.125,
+        "avg_draft_ms": 168.262375,
+        "avg_verify_ms": 152.951125,
+        "avg_total_ms": 321.294,
+        "avg_tree_replay_ms": 162.957625,
+        "avg_tree_expand_ms": 4.99475,
+        "avg_tree_flatten_ms": 0.000875,
+        "avg_tree_verify_only_ms": 151.549375,
+        "avg_tree_select_ms": 0.000125,
+        "avg_tree_sync_ms": 0.0325
+      },
+      {
+        "prompt": "Write a short paragraph comparing mutex and semaphore.",
+        "returncode": 0,
+        "tokens_s": 5.653,
+        "decode_s": 3.184,
+        "n_rounds": 8.0,
+        "n_predict": 18.0,
+        "n_drafted": 16.0,
+        "n_accept": 10.0,
+        "accept": 62.5,
+        "draft_ms_total": 1707.865,
+        "verify_ms_total": 1475.423,
+        "total_ms_rounds": 3183.857,
+        "verify_per_100tok": 44.444,
+        "avg_branch_per_round": 1.0,
+        "avg_tree_tokens_per_round": 2.0,
+        "tree_replay_ms_total": 1663.82,
+        "tree_expand_ms_total": 41.591,
+        "tree_flatten_ms_total": 0.008,
+        "tree_verify_only_ms_total": 1465.941,
+        "tree_select_ms_total": 0.001,
+        "tree_sync_ms_total": 0.214,
+        "avg_proposed_len": 2.0,
+        "avg_accepted_len": 1.25,
+        "avg_draft_ms": 213.483125,
+        "avg_verify_ms": 184.427875,
+        "avg_total_ms": 397.982125,
+        "avg_tree_replay_ms": 207.9775,
+        "avg_tree_expand_ms": 5.198875,
+        "avg_tree_flatten_ms": 0.001,
+        "avg_tree_verify_only_ms": 183.242625,
+        "avg_tree_select_ms": 0.000125,
+        "avg_tree_sync_ms": 0.02675
+      }
+    ]
+  },
+  "summary": {
+    "current_tree": {
+      "accept": {
+        "mean": 52.94133333333333,
+        "stdev": 4.682004508992084
+      },
+      "tokens_s": {
+        "mean": 6.6033333333333335,
+        "stdev": 0.13681211772191657
+      },
+      "avg_proposed_len": {
+        "mean": 2.5277777777777777,
+        "stdev": 0.21606040536255625
+      },
+      "avg_accepted_len": {
+        "mean": 1.3472222222222223,
+        "stdev": 0.2315740555629593
+      },
+      "avg_draft_ms": {
+        "mean": 141.89175,
+        "stdev": 10.904521655793367
+      },
+      "avg_verify_ms": {
+        "mean": 213.01536111111113,
+        "stdev": 22.808615708283654
+      },
+      "avg_total_ms": {
+        "mean": 354.9881388888889,
+        "stdev": 28.57248787216904
+      },
+      "verify_per_100tok": {
+        "mean": 43.001,
+        "stdev": 4.033634176108024
+      },
+      "avg_branch_per_round": {
+        "mean": 1.6943333333333332,
+        "stdev": 0.14153052281712553
+      },
+      "avg_tree_tokens_per_round": {
+        "mean": 2.5276666666666667,
+        "stdev": 0.2159032705222926
+      },
+      "avg_tree_replay_ms": {
+        "mean": 137.47443055555556,
+        "stdev": 10.87449298000349
+      },
+      "avg_tree_expand_ms": {
+        "mean": 4.196444444444444,
+        "stdev": 0.13901005131746402
+      },
+      "avg_tree_flatten_ms": {
+        "mean": 0.0010694444444444445,
+        "stdev": 0.0002413631555136495
+      },
+      "avg_tree_verify_only_ms": {
+        "mean": 211.09306944444444,
+        "stdev": 22.675376070075824
+      },
+      "avg_tree_select_ms": {
+        "mean": 0.0,
+        "stdev": 0.0
+      },
+      "avg_tree_sync_ms": {
+        "mean": 0.03575,
+        "stdev": 0.004055603119964609
+      }
+    },
+    "strict_limited_tree": {
+      "accept": {
+        "mean": 61.010000000000005,
+        "stdev": 10.799777991545321
+      },
+      "tokens_s": {
+        "mean": 7.695,
+        "stdev": 2.278327456710295
+      },
+      "avg_proposed_len": {
+        "mean": 1.4212962962962963,
+        "stdev": 0.18437321992351738
+      },
+      "avg_accepted_len": {
+        "mean": 0.8518518518518519,
+        "stdev": 0.10475656017578482
+      },
+      "avg_draft_ms": {
+        "mean": 80.1576574074074,
+        "stdev": 12.953600837868906
+      },
+      "avg_verify_ms": {
+        "mean": 183.11487962962963,
+        "stdev": 75.03308305457712
+      },
+      "avg_total_ms": {
+        "mean": 263.5334537037037,
+        "stdev": 80.23789026087756
+      },
+      "verify_per_100tok": {
+        "mean": 54.166666666666664,
+        "stdev": 2.946278254943948
+      },
+      "avg_branch_per_round": {
+        "mean": 1.4213333333333333,
+        "stdev": 0.1846010713824694
+      },
+      "avg_tree_tokens_per_round": {
+        "mean": 1.4213333333333333,
+        "stdev": 0.1846010713824694
+      },
+      "avg_tree_replay_ms": {
+        "mean": 77.90171296296296,
+        "stdev": 12.760686497481348
+      },
+      "avg_tree_expand_ms": {
+        "mean": 2.1436574074074075,
+        "stdev": 0.2234639892520838
+      },
+      "avg_tree_flatten_ms": {
+        "mean": 0.0008425925925925926,
+        "stdev": 6.547285010986552e-05
+      },
+      "avg_tree_verify_only_ms": {
+        "mean": 181.61565277777777,
+        "stdev": 75.15772418303266
+      },
+      "avg_tree_select_ms": {
+        "mean": 0.00015277777777777777,
+        "stdev": 4.9430917833478294e-05
+      },
+      "avg_tree_sync_ms": {
+        "mean": 0.03765740740740741,
+        "stdev": 0.006356210037094847
+      }
+    },
+    "high_uncertainty_tree": {
+      "accept": {
+        "mean": 60.049,
+        "stdev": 5.106163399918442
+      },
+      "tokens_s": {
+        "mean": 7.218333333333333,
+        "stdev": 1.5841391633593584
+      },
+      "avg_proposed_len": {
+        "mean": 2.1845238095238093,
+        "stdev": 0.17995495783132104
+      },
+      "avg_accepted_len": {
+        "mean": 1.3154761904761905,
+        "stdev": 0.18804248808251564
+      },
+      "avg_draft_ms": {
+        "mean": 167.97830952380951,
+        "stdev": 37.271036760413224
+      },
+      "avg_verify_ms": {
+        "mean": 162.97552380952382,
+        "stdev": 15.179921373459335
+      },
+      "avg_total_ms": {
+        "mean": 331.0528511904762,
+        "stdev": 51.131269270602516
+      },
+      "verify_per_100tok": {
+        "mean": 43.464,
+        "stdev": 3.4066136656020527
+      },
+      "avg_branch_per_round": {
+        "mean": 1.1846666666666668,
+        "stdev": 0.18014870400742705
+      },
+      "avg_tree_tokens_per_round": {
+        "mean": 2.1846666666666668,
+        "stdev": 0.18014870400742694
+      },
+      "avg_tree_replay_ms": {
+        "mean": 162.8146130952381,
+        "stdev": 36.93386554783215
+      },
+      "avg_tree_expand_ms": {
+        "mean": 4.850922619047619,
+        "stdev": 0.35758659051161124
+      },
+      "avg_tree_flatten_ms": {
+        "mean": 0.0009583333333333334,
+        "stdev": 5.892556509887896e-05
+      },
+      "avg_tree_verify_only_ms": {
+        "mean": 161.43457142857145,
+        "stdev": 15.443044080909255
+      },
+      "avg_tree_select_ms": {
+        "mean": 0.00017857142857142857,
+        "stdev": 7.576144084141582e-05
+      },
+      "avg_tree_sync_ms": {
+        "mean": 0.051083333333333335,
+        "stdev": 0.03043732175398413
+      }
+    }
+  }
+}

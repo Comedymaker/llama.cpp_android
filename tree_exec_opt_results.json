@@ -1,0 +1,754 @@
+{
+  "results": {
+    "tree_original": [
+      {
+        "prompt": "Explain LRU cache briefly.",
+        "returncode": 0,
+        "tokens_s": 8.891,
+        "n_rounds": 6.0,
+        "n_predict": 16.0,
+        "n_drafted": 17.0,
+        "n_accept": 10.0,
+        "accept": 58.824,
+        "draft_ms_total": 696.006,
+        "verify_ms_total": 1103.115,
+        "total_ms_rounds": 1799.504,
+        "verify_per_100tok": 37.5,
+        "avg_branch_per_round": 1.833,
+        "avg_tree_tokens_per_round": 2.833,
+        "avg_tree_verify_branches_per_round": 1.833,
+        "avg_tree_verify_tokens_per_round": 4.833,
+        "tree_reuse_hits_total": 0.0,
+        "tree_avoided_replays_total": 0.0,
+        "tree_replay_ms_total": 660.359,
+        "tree_expand_ms_total": 34.538,
+        "tree_flatten_ms_total": 0.007,
+        "tree_verify_only_ms_total": 1092.542,
+        "tree_select_ms_total": 0.001,
+        "tree_sync_ms_total": 0.21,
+        "avg_proposed_len": 2.8333333333333335,
+        "avg_accepted_len": 1.6666666666666667,
+        "avg_draft_ms": 116.00099999999999,
+        "avg_verify_ms": 183.8525,
+        "avg_total_ms": 299.9173333333333,
+        "avg_tree_replay_ms": 110.05983333333334,
+        "avg_tree_expand_ms": 5.756333333333333,
+        "avg_tree_flatten_ms": 0.0011666666666666668,
+        "avg_tree_verify_only_ms": 182.09033333333332,
+        "avg_tree_select_ms": 0.00016666666666666666,
+        "avg_tree_sync_ms": 0.034999999999999996
+      },
+      {
+        "prompt": "Summarize how DNS caching works in simple terms.",
+        "returncode": 0,
+        "tokens_s": 7.16,
+        "n_rounds": 8.0,
+        "n_predict": 17.0,
+        "n_drafted": 19.0,
+        "n_accept": 9.0,
+        "accept": 47.368,
+        "draft_ms_total": 1022.498,
+        "verify_ms_total": 1351.27,
+        "total_ms_rounds": 2374.296,
+        "verify_per_100tok": 47.059,
+        "avg_branch_per_round": 1.75,
+        "avg_tree_tokens_per_round": 2.375,
+        "avg_tree_verify_branches_per_round": 1.75,
+        "avg_tree_verify_tokens_per_round": 4.25,
+        "tree_reuse_hits_total": 0.0,
+        "tree_avoided_replays_total": 0.0,
+        "tree_replay_ms_total": 979.926,
+        "tree_expand_ms_total": 41.071,
+        "tree_flatten_ms_total": 0.01,
+        "tree_verify_only_ms_total": 1335.121,
+        "tree_select_ms_total": 0.004,
+        "tree_sync_ms_total": 0.309,
+        "avg_proposed_len": 2.375,
+        "avg_accepted_len": 1.125,
+        "avg_draft_ms": 127.81225,
+        "avg_verify_ms": 168.90875,
+        "avg_total_ms": 296.787,
+        "avg_tree_replay_ms": 122.49075,
+        "avg_tree_expand_ms": 5.133875,
+        "avg_tree_flatten_ms": 0.00125,
+        "avg_tree_verify_only_ms": 166.890125,
+        "avg_tree_select_ms": 0.0005,
+        "avg_tree_sync_ms": 0.038625
+      },
+      {
+        "prompt": "Write a short paragraph comparing mutex and semaphore.",
+        "returncode": 0,
+        "tokens_s": 6.401,
+        "n_rounds": 8.0,
+        "n_predict": 18.0,
+        "n_drafted": 19.0,
+        "n_accept": 10.0,
+        "accept": 52.632,
+        "draft_ms_total": 1157.761,
+        "verify_ms_total": 1652.453,
+        "total_ms_rounds": 2811.482,
+        "verify_per_100tok": 44.444,
+        "avg_branch_per_round": 1.5,
+        "avg_tree_tokens_per_round": 2.375,
+        "avg_tree_verify_branches_per_round": 1.5,
+        "avg_tree_verify_tokens_per_round": 4.0,
+        "tree_reuse_hits_total": 0.0,
+        "tree_avoided_replays_total": 0.0,
+        "tree_replay_ms_total": 1108.101,
+        "tree_expand_ms_total": 47.759,
+        "tree_flatten_ms_total": 0.01,
+        "tree_verify_only_ms_total": 1638.783,
+        "tree_select_ms_total": 0.0,
+        "tree_sync_ms_total": 0.276,
+        "avg_proposed_len": 2.375,
+        "avg_accepted_len": 1.25,
+        "avg_draft_ms": 144.720125,
+        "avg_verify_ms": 206.556625,
+        "avg_total_ms": 351.43525,
+        "avg_tree_replay_ms": 138.512625,
+        "avg_tree_expand_ms": 5.969875,
+        "avg_tree_flatten_ms": 0.00125,
+        "avg_tree_verify_only_ms": 204.847875,
+        "avg_tree_select_ms": 0.0,
+        "avg_tree_sync_ms": 0.0345
+      }
+    ],
+    "tree_reuse": [
+      {
+        "prompt": "Explain LRU cache briefly.",
+        "returncode": 0,
+        "tokens_s": 5.368,
+        "n_rounds": 6.0,
+        "n_predict": 16.0,
+        "n_drafted": 17.0,
+        "n_accept": 10.0,
+        "accept": 58.824,
+        "draft_ms_total": 1134.967,
+        "verify_ms_total": 1844.856,
+        "total_ms_rounds": 2980.339,
+        "verify_per_100tok": 37.5,
+        "avg_branch_per_round": 1.833,
+        "avg_tree_tokens_per_round": 2.833,
+        "avg_tree_verify_branches_per_round": 1.833,
+        "avg_tree_verify_tokens_per_round": 4.833,
+        "tree_reuse_hits_total": 0.0,
+        "tree_avoided_replays_total": 12.0,
+        "tree_replay_ms_total": 1087.108,
+        "tree_expand_ms_total": 46.546,
+        "tree_flatten_ms_total": 0.009,
+        "tree_verify_only_ms_total": 1832.106,
+        "tree_select_ms_total": 0.001,
+        "tree_sync_ms_total": 0.241,
+        "avg_proposed_len": 2.8333333333333335,
+        "avg_accepted_len": 1.6666666666666667,
+        "avg_draft_ms": 189.16116666666667,
+        "avg_verify_ms": 307.476,
+        "avg_total_ms": 496.72316666666666,
+        "avg_tree_replay_ms": 181.18466666666666,
+        "avg_tree_expand_ms": 7.757666666666666,
+        "avg_tree_flatten_ms": 0.0014999999999999998,
+        "avg_tree_verify_only_ms": 305.351,
+        "avg_tree_select_ms": 0.00016666666666666666,
+        "avg_tree_sync_ms": 0.04016666666666666
+      },
+      {
+        "prompt": "Summarize how DNS caching works in simple terms.",
+        "returncode": 0,
+        "tokens_s": 6.498,
+        "n_rounds": 8.0,
+        "n_predict": 17.0,
+        "n_drafted": 19.0,
+        "n_accept": 9.0,
+        "accept": 47.368,
+        "draft_ms_total": 1169.401,
+        "verify_ms_total": 1446.343,
+        "total_ms_rounds": 2616.266,
+        "verify_per_100tok": 47.059,
+        "avg_branch_per_round": 1.75,
+        "avg_tree_tokens_per_round": 2.375,
+        "avg_tree_verify_branches_per_round": 1.75,
+        "avg_tree_verify_tokens_per_round": 4.25,
+        "tree_reuse_hits_total": 0.0,
+        "tree_avoided_replays_total": 13.0,
+        "tree_replay_ms_total": 1120.323,
+        "tree_expand_ms_total": 46.846,
+        "tree_flatten_ms_total": 0.012,
+        "tree_verify_only_ms_total": 1428.703,
+        "tree_select_ms_total": 0.001,
+        "tree_sync_ms_total": 0.312,
+        "avg_proposed_len": 2.375,
+        "avg_accepted_len": 1.125,
+        "avg_draft_ms": 146.175125,
+        "avg_verify_ms": 180.792875,
+        "avg_total_ms": 327.03325,
+        "avg_tree_replay_ms": 140.040375,
+        "avg_tree_expand_ms": 5.85575,
+        "avg_tree_flatten_ms": 0.0015,
+        "avg_tree_verify_only_ms": 178.587875,
+        "avg_tree_select_ms": 0.000125,
+        "avg_tree_sync_ms": 0.039
+      },
+      {
+        "prompt": "Write a short paragraph comparing mutex and semaphore.",
+        "returncode": 0,
+        "tokens_s": 6.897,
+        "n_rounds": 8.0,
+        "n_predict": 18.0,
+        "n_drafted": 19.0,
+        "n_accept": 10.0,
+        "accept": 52.632,
+        "draft_ms_total": 1160.206,
+        "verify_ms_total": 1448.483,
+        "total_ms_rounds": 2609.494,
+        "verify_per_100tok": 44.444,
+        "avg_branch_per_round": 1.5,
+        "avg_tree_tokens_per_round": 2.375,
+        "avg_tree_verify_branches_per_round": 1.5,
+        "avg_tree_verify_tokens_per_round": 4.0,
+        "tree_reuse_hits_total": 0.0,
+        "tree_avoided_replays_total": 15.0,
+        "tree_replay_ms_total": 1108.81,
+        "tree_expand_ms_total": 48.653,
+        "tree_flatten_ms_total": 0.012,
+        "tree_verify_only_ms_total": 1433.657,
+        "tree_select_ms_total": 0.001,
+        "tree_sync_ms_total": 0.289,
+        "avg_proposed_len": 2.375,
+        "avg_accepted_len": 1.25,
+        "avg_draft_ms": 145.02575,
+        "avg_verify_ms": 181.060375,
+        "avg_total_ms": 326.18675,
+        "avg_tree_replay_ms": 138.60125,
+        "avg_tree_expand_ms": 6.081625,
+        "avg_tree_flatten_ms": 0.0015,
+        "avg_tree_verify_only_ms": 179.207125,
+        "avg_tree_select_ms": 0.000125,
+        "avg_tree_sync_ms": 0.036125
+      }
+    ],
+    "tree_prune": [
+      {
+        "prompt": "Explain LRU cache briefly.",
+        "returncode": 0,
+        "tokens_s": 8.437,
+        "n_rounds": 7.0,
+        "n_predict": 16.0,
+        "n_drafted": 18.0,
+        "n_accept": 9.0,
+        "accept": 50.0,
+        "draft_ms_total": 792.73,
+        "verify_ms_total": 1103.186,
+        "total_ms_rounds": 1896.316,
+        "verify_per_100tok": 43.75,
+        "avg_branch_per_round": 1.857,
+        "avg_tree_tokens_per_round": 2.571,
+        "avg_tree_verify_branches_per_round": 1.0,
+        "avg_tree_verify_tokens_per_round": 2.714,
+        "tree_reuse_hits_total": 0.0,
+        "tree_avoided_replays_total": 0.0,
+        "tree_replay_ms_total": 753.625,
+        "tree_expand_ms_total": 37.433,
+        "tree_flatten_ms_total": 0.008,
+        "tree_verify_only_ms_total": 1094.446,
+        "tree_select_ms_total": 0.001,
+        "tree_sync_ms_total": 0.211,
+        "avg_proposed_len": 2.5714285714285716,
+        "avg_accepted_len": 1.2857142857142858,
+        "avg_draft_ms": 113.24714285714286,
+        "avg_verify_ms": 157.59799999999998,
+        "avg_total_ms": 270.9022857142857,
+        "avg_tree_replay_ms": 107.66071428571429,
+        "avg_tree_expand_ms": 5.347571428571428,
+        "avg_tree_flatten_ms": 0.001142857142857143,
+        "avg_tree_verify_only_ms": 156.34942857142855,
+        "avg_tree_select_ms": 0.00014285714285714287,
+        "avg_tree_sync_ms": 0.03014285714285714
+      },
+      {
+        "prompt": "Summarize how DNS caching works in simple terms.",
+        "returncode": 0,
+        "tokens_s": 7.232,
+        "n_rounds": 10.0,
+        "n_predict": 17.0,
+        "n_drafted": 22.0,
+        "n_accept": 7.0,
+        "accept": 31.818,
+        "draft_ms_total": 1136.524,
+        "verify_ms_total": 1211.766,
+        "total_ms_rounds": 2348.914,
+        "verify_per_100tok": 58.824,
+        "avg_branch_per_round": 1.7,
+        "avg_tree_tokens_per_round": 2.2,
+        "avg_tree_verify_branches_per_round": 1.0,
+        "avg_tree_verify_tokens_per_round": 2.4,
+        "tree_reuse_hits_total": 0.0,
+        "tree_avoided_replays_total": 0.0,
+        "tree_replay_ms_total": 1088.919,
+        "tree_expand_ms_total": 46.124,
+        "tree_flatten_ms_total": 0.01,
+        "tree_verify_only_ms_total": 1201.345,
+        "tree_select_ms_total": 0.0,
+        "tree_sync_ms_total": 0.344,
+        "avg_proposed_len": 2.2,
+        "avg_accepted_len": 0.7,
+        "avg_draft_ms": 113.65239999999999,
+        "avg_verify_ms": 121.17660000000001,
+        "avg_total_ms": 234.89140000000003,
+        "avg_tree_replay_ms": 108.8919,
+        "avg_tree_expand_ms": 4.6124,
+        "avg_tree_flatten_ms": 0.001,
+        "avg_tree_verify_only_ms": 120.1345,
+        "avg_tree_select_ms": 0.0,
+        "avg_tree_sync_ms": 0.0344
+      },
+      {
+        "prompt": "Write a short paragraph comparing mutex and semaphore.",
+        "returncode": 0,
+        "tokens_s": 4.524,
+        "n_rounds": 8.0,
+        "n_predict": 18.0,
+        "n_drafted": 18.0,
+        "n_accept": 10.0,
+        "accept": 55.556,
+        "draft_ms_total": 2238.658,
+        "verify_ms_total": 1738.885,
+        "total_ms_rounds": 3978.26,
+        "verify_per_100tok": 44.444,
+        "avg_branch_per_round": 1.25,
+        "avg_tree_tokens_per_round": 2.25,
+        "avg_tree_verify_branches_per_round": 1.0,
+        "avg_tree_verify_tokens_per_round": 2.875,
+        "tree_reuse_hits_total": 0.0,
+        "tree_avoided_replays_total": 0.0,
+        "tree_replay_ms_total": 2186.003,
+        "tree_expand_ms_total": 50.937,
+        "tree_flatten_ms_total": 0.011,
+        "tree_verify_only_ms_total": 1729.634,
+        "tree_select_ms_total": 0.0,
+        "tree_sync_ms_total": 0.26,
+        "avg_proposed_len": 2.25,
+        "avg_accepted_len": 1.25,
+        "avg_draft_ms": 279.83225,
+        "avg_verify_ms": 217.360625,
+        "avg_total_ms": 497.2825,
+        "avg_tree_replay_ms": 273.250375,
+        "avg_tree_expand_ms": 6.367125,
+        "avg_tree_flatten_ms": 0.001375,
+        "avg_tree_verify_only_ms": 216.20425,
+        "avg_tree_select_ms": 0.0,
+        "avg_tree_sync_ms": 0.0325
+      }
+    ],
+    "tree_reuse_prune": [
+      {
+        "prompt": "Explain LRU cache briefly.",
+        "returncode": 0,
+        "tokens_s": 9.402,
+        "n_rounds": 7.0,
+        "n_predict": 16.0,
+        "n_drafted": 18.0,
+        "n_accept": 9.0,
+        "accept": 50.0,
+        "draft_ms_total": 812.613,
+        "verify_ms_total": 888.536,
+        "total_ms_rounds": 1701.655,
+        "verify_per_100tok": 43.75,
+        "avg_branch_per_round": 1.857,
+        "avg_tree_tokens_per_round": 2.571,
+        "avg_tree_verify_branches_per_round": 1.0,
+        "avg_tree_verify_tokens_per_round": 2.714,
+        "tree_reuse_hits_total": 0.0,
+        "tree_avoided_replays_total": 12.0,
+        "tree_replay_ms_total": 774.359,
+        "tree_expand_ms_total": 37.106,
+        "tree_flatten_ms_total": 0.007,
+        "tree_verify_only_ms_total": 876.43,
+        "tree_select_ms_total": 0.002,
+        "tree_sync_ms_total": 0.298,
+        "avg_proposed_len": 2.5714285714285716,
+        "avg_accepted_len": 1.2857142857142858,
+        "avg_draft_ms": 116.08757142857144,
+        "avg_verify_ms": 126.93371428571427,
+        "avg_total_ms": 243.09357142857144,
+        "avg_tree_replay_ms": 110.6227142857143,
+        "avg_tree_expand_ms": 5.300857142857143,
+        "avg_tree_flatten_ms": 0.001,
+        "avg_tree_verify_only_ms": 125.2042857142857,
+        "avg_tree_select_ms": 0.00028571428571428574,
+        "avg_tree_sync_ms": 0.04257142857142857
+      },
+      {
+        "prompt": "Summarize how DNS caching works in simple terms.",
+        "returncode": 0,
+        "tokens_s": 7.03,
+        "n_rounds": 10.0,
+        "n_predict": 17.0,
+        "n_drafted": 22.0,
+        "n_accept": 7.0,
+        "accept": 31.818,
+        "draft_ms_total": 1176.435,
+        "verify_ms_total": 1240.37,
+        "total_ms_rounds": 2417.431,
+        "verify_per_100tok": 58.824,
+        "avg_branch_per_round": 1.7,
+        "avg_tree_tokens_per_round": 2.2,
+        "avg_tree_verify_branches_per_round": 1.0,
+        "avg_tree_verify_tokens_per_round": 2.4,
+        "tree_reuse_hits_total": 0.0,
+        "tree_avoided_replays_total": 15.0,
+        "tree_replay_ms_total": 1124.923,
+        "tree_expand_ms_total": 49.911,
+        "tree_flatten_ms_total": 0.01,
+        "tree_verify_only_ms_total": 1228.52,
+        "tree_select_ms_total": 0.001,
+        "tree_sync_ms_total": 0.35,
+        "avg_proposed_len": 2.2,
+        "avg_accepted_len": 0.7,
+        "avg_draft_ms": 117.64349999999999,
+        "avg_verify_ms": 124.03699999999999,
+        "avg_total_ms": 241.7431,
+        "avg_tree_replay_ms": 112.4923,
+        "avg_tree_expand_ms": 4.9911,
+        "avg_tree_flatten_ms": 0.001,
+        "avg_tree_verify_only_ms": 122.852,
+        "avg_tree_select_ms": 0.0001,
+        "avg_tree_sync_ms": 0.034999999999999996
+      },
+      {
+        "prompt": "Write a short paragraph comparing mutex and semaphore.",
+        "returncode": 0,
+        "tokens_s": 5.982,
+        "n_rounds": 8.0,
+        "n_predict": 18.0,
+        "n_drafted": 18.0,
+        "n_accept": 10.0,
+        "accept": 55.556,
+        "draft_ms_total": 1574.021,
+        "verify_ms_total": 1434.36,
+        "total_ms_rounds": 3008.853,
+        "verify_per_100tok": 44.444,
+        "avg_branch_per_round": 1.25,
+        "avg_tree_tokens_per_round": 2.25,
+        "avg_tree_verify_branches_per_round": 1.0,
+        "avg_tree_verify_tokens_per_round": 2.875,
+        "tree_reuse_hits_total": 0.0,
+        "tree_avoided_replays_total": 16.0,
+        "tree_replay_ms_total": 1511.066,
+        "tree_expand_ms_total": 60.583,
+        "tree_flatten_ms_total": 0.01,
+        "tree_verify_only_ms_total": 1422.352,
+        "tree_select_ms_total": 0.001,
+        "tree_sync_ms_total": 0.251,
+        "avg_proposed_len": 2.25,
+        "avg_accepted_len": 1.25,
+        "avg_draft_ms": 196.752625,
+        "avg_verify_ms": 179.295,
+        "avg_total_ms": 376.106625,
+        "avg_tree_replay_ms": 188.88325,
+        "avg_tree_expand_ms": 7.572875,
+        "avg_tree_flatten_ms": 0.00125,
+        "avg_tree_verify_only_ms": 177.794,
+        "avg_tree_select_ms": 0.000125,
+        "avg_tree_sync_ms": 0.031375
+      }
+    ]
+  },
+  "summary": {
+    "tree_original": {
+      "accept": {
+        "mean": 52.94133333333333,
+        "stdev": 4.682004508992084
+      },
+      "tokens_s": {
+        "mean": 7.484,
+        "stdev": 1.0420355080322359
+      },
+      "avg_proposed_len": {
+        "mean": 2.5277777777777777,
+        "stdev": 0.21606040536255625
+      },
+      "avg_accepted_len": {
+        "mean": 1.3472222222222223,
+        "stdev": 0.2315740555629593
+      },
+      "avg_draft_ms": {
+        "mean": 129.511125,
+        "stdev": 11.785914400691052
+      },
+      "avg_verify_ms": {
+        "mean": 186.43929166666666,
+        "stdev": 15.478140313550986
+      },
+      "avg_total_ms": {
+        "mean": 316.0465277777778,
+        "stdev": 25.056216688154773
+      },
+      "verify_per_100tok": {
+        "mean": 43.001,
+        "stdev": 4.033634176108024
+      },
+      "avg_branch_per_round": {
+        "mean": 1.6943333333333332,
+        "stdev": 0.14153052281712553
+      },
+      "avg_tree_tokens_per_round": {
+        "mean": 2.5276666666666667,
+        "stdev": 0.2159032705222926
+      },
+      "avg_tree_verify_branches_per_round": {
+        "mean": 1.6943333333333332,
+        "stdev": 0.14153052281712553
+      },
+      "avg_tree_verify_tokens_per_round": {
+        "mean": 4.361,
+        "stdev": 0.34901098359029725
+      },
+      "avg_tree_replay_ms": {
+        "mean": 123.68773611111112,
+        "stdev": 11.646599509995147
+      },
+      "avg_tree_expand_ms": {
+        "mean": 5.620027777777778,
+        "stdev": 0.35464386207055815
+      },
+      "avg_tree_flatten_ms": {
+        "mean": 0.0012222222222222222,
+        "stdev": 3.9283710065919274e-05
+      },
+      "avg_tree_verify_only_ms": {
+        "mean": 184.60944444444445,
+        "stdev": 15.598229319556696
+      },
+      "avg_tree_select_ms": {
+        "mean": 0.00022222222222222223,
+        "stdev": 0.00020786985482077453
+      },
+      "avg_tree_sync_ms": {
+        "mean": 0.036041666666666666,
+        "stdev": 0.001838062083342731
+      }
+    },
+    "tree_reuse": {
+      "accept": {
+        "mean": 52.94133333333333,
+        "stdev": 4.682004508992084
+      },
+      "tokens_s": {
+        "mean": 6.254333333333333,
+        "stdev": 0.6475545451071197
+      },
+      "avg_proposed_len": {
+        "mean": 2.5277777777777777,
+        "stdev": 0.21606040536255625
+      },
+      "avg_accepted_len": {
+        "mean": 1.3472222222222223,
+        "stdev": 0.2315740555629593
+      },
+      "avg_draft_ms": {
+        "mean": 160.12068055555557,
+        "stdev": 20.540085051753227
+      },
+      "avg_verify_ms": {
+        "mean": 223.10975,
+        "stdev": 59.65604743504984
+      },
+      "avg_total_ms": {
+        "mean": 383.3143888888889,
+        "stdev": 80.19286044010624
+      },
+      "verify_per_100tok": {
+        "mean": 43.001,
+        "stdev": 4.033634176108024
+      },
+      "avg_branch_per_round": {
+        "mean": 1.6943333333333332,
+        "stdev": 0.14153052281712553
+      },
+      "avg_tree_tokens_per_round": {
+        "mean": 2.5276666666666667,
+        "stdev": 0.2159032705222926
+      },
+      "avg_tree_verify_branches_per_round": {
+        "mean": 1.6943333333333332,
+        "stdev": 0.14153052281712553
+      },
+      "avg_tree_verify_tokens_per_round": {
+        "mean": 4.361,
+        "stdev": 0.34901098359029725
+      },
+      "avg_tree_replay_ms": {
+        "mean": 153.27543055555554,
+        "stdev": 19.74355363860514
+      },
+      "avg_tree_expand_ms": {
+        "mean": 6.565013888888888,
+        "stdev": 0.8483593441311832
+      },
+      "avg_tree_flatten_ms": {
+        "mean": 0.0015,
+        "stdev": 1.0221956111222494e-19
+      },
+      "avg_tree_verify_only_ms": {
+        "mean": 221.04866666666666,
+        "stdev": 59.61128764321938
+      },
+      "avg_tree_select_ms": {
+        "mean": 0.0001388888888888889,
+        "stdev": 1.964185503295965e-05
+      },
+      "avg_tree_sync_ms": {
+        "mean": 0.03843055555555555,
+        "stdev": 0.001698424287899933
+      }
+    },
+    "tree_prune": {
+      "accept": {
+        "mean": 45.791333333333334,
+        "stdev": 10.13764658203383
+      },
+      "tokens_s": {
+        "mean": 6.731,
+        "stdev": 1.6362850199970254
+      },
+      "avg_proposed_len": {
+        "mean": 2.3404761904761906,
+        "stdev": 0.1645787586550996
+      },
+      "avg_accepted_len": {
+        "mean": 1.0785714285714285,
+        "stdev": 0.26808720278916665
+      },
+      "avg_draft_ms": {
+        "mean": 168.91059761904762,
+        "stdev": 78.43362707210298
+      },
+      "avg_verify_ms": {
+        "mean": 165.37840833333334,
+        "stdev": 39.650495849570476
+      },
+      "avg_total_ms": {
+        "mean": 334.35872857142857,
+        "stdev": 116.13874588859619
+      },
+      "verify_per_100tok": {
+        "mean": 49.006,
+        "stdev": 6.948153327803485
+      },
+      "avg_branch_per_round": {
+        "mean": 1.6023333333333334,
+        "stdev": 0.25724998650253716
+      },
+      "avg_tree_tokens_per_round": {
+        "mean": 2.3403333333333336,
+        "stdev": 0.16437828999664839
+      },
+      "avg_tree_verify_branches_per_round": {
+        "mean": 1.0,
+        "stdev": 0.0
+      },
+      "avg_tree_verify_tokens_per_round": {
+        "mean": 2.663,
+        "stdev": 0.19724265934798862
+      },
+      "avg_tree_replay_ms": {
+        "mean": 163.2676630952381,
+        "stdev": 77.77114564759931
+      },
+      "avg_tree_expand_ms": {
+        "mean": 5.442365476190476,
+        "stdev": 0.7194925943581126
+      },
+      "avg_tree_flatten_ms": {
+        "mean": 0.0011726190476190476,
+        "stdev": 0.00015453279744937103
+      },
+      "avg_tree_verify_only_ms": {
+        "mean": 164.22939285714284,
+        "stdev": 39.61413547480011
+      },
+      "avg_tree_select_ms": {
+        "mean": 4.761904761904762e-05,
+        "stdev": 6.734350297014739e-05
+      },
+      "avg_tree_sync_ms": {
+        "mean": 0.03234761904761905,
+        "stdev": 0.0017413081849607611
+      }
+    },
+    "tree_reuse_prune": {
+      "accept": {
+        "mean": 45.791333333333334,
+        "stdev": 10.13764658203383
+      },
+      "tokens_s": {
+        "mean": 7.471333333333333,
+        "stdev": 1.4306598322297144
+      },
+      "avg_proposed_len": {
+        "mean": 2.3404761904761906,
+        "stdev": 0.1645787586550996
+      },
+      "avg_accepted_len": {
+        "mean": 1.0785714285714285,
+        "stdev": 0.26808720278916665
+      },
+      "avg_draft_ms": {
+        "mean": 143.49456547619047,
+        "stdev": 37.66449173612617
+      },
+      "avg_verify_ms": {
+        "mean": 143.42190476190476,
+        "stdev": 25.393660099643686
+      },
+      "avg_total_ms": {
+        "mean": 286.9810988095238,
+        "stdev": 63.02367548425375
+      },
+      "verify_per_100tok": {
+        "mean": 49.006,
+        "stdev": 6.948153327803485
+      },
+      "avg_branch_per_round": {
+        "mean": 1.6023333333333334,
+        "stdev": 0.25724998650253716
+      },
+      "avg_tree_tokens_per_round": {
+        "mean": 2.3403333333333336,
+        "stdev": 0.16437828999664839
+      },
+      "avg_tree_verify_branches_per_round": {
+        "mean": 1.0,
+        "stdev": 0.0
+      },
+      "avg_tree_verify_tokens_per_round": {
+        "mean": 2.663,
+        "stdev": 0.19724265934798862
+      },
+      "avg_tree_replay_ms": {
+        "mean": 137.33275476190477,
+        "stdev": 36.4596947066705
+      },
+      "avg_tree_expand_ms": {
+        "mean": 5.954944047619048,
+        "stdev": 1.151017751641855
+      },
+      "avg_tree_flatten_ms": {
+        "mean": 0.0010833333333333333,
+        "stdev": 0.00011785113019775792
+      },
+      "avg_tree_verify_only_ms": {
+        "mean": 141.95009523809523,
+        "stdev": 25.363654356260557
+      },
+      "avg_tree_select_ms": {
+        "mean": 0.00017023809523809526,
+        "stdev": 8.22893793275498e-05
+      },
+      "avg_tree_sync_ms": {
+        "mean": 0.03631547619047619,
+        "stdev": 0.004664608693453134
+      }
+    }
+  }
+}
