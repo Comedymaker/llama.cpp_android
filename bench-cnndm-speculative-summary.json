@@ -1,0 +1,12 @@
+{
+  "samples_total": 3,
+  "samples_ok": 3,
+  "draft_decode_tps_mean": 66.17666666666666,
+  "target_decode_tps_mean": 16.946666666666665,
+  "spec_decode_tps_mean": 6.0536666666666665,
+  "speedup_vs_target_mean": 0.35701312447121314,
+  "spec_accept_pct_mean": 16.102666666666668,
+  "spec_n_predict_mean": 65.0,
+  "spec_n_drafted_mean": 288.0,
+  "spec_n_accept_mean": 46.0
+}

@@ -1,0 +1,9 @@
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| qwen3 4B Q4_K - Small          |   2.21 GiB |     4.02 B | CPU        |       8 |            pp32 |         66.96 ± 3.61 |
+| qwen3 4B Q4_K - Small          |   2.21 GiB |     4.02 B | CPU        |       8 |           pp128 |        42.70 ± 34.55 |
+| qwen3 4B Q4_K - Small          |   2.21 GiB |     4.02 B | CPU        |       8 |           pp256 |         28.29 ± 0.07 |
+| qwen3 4B Q4_K - Small          |   2.21 GiB |     4.02 B | CPU        |       8 |           pp384 |         27.73 ± 7.25 |
+| qwen3 4B Q4_K - Small          |   2.21 GiB |     4.02 B | CPU        |       8 |           tg128 |          7.07 ± 0.01 |
+
+build: fe00a84b4 (8404)

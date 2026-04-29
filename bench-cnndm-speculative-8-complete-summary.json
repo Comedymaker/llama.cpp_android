@@ -1,0 +1,22 @@
+{
+  "samples_total": 8,
+  "samples_ok": 8,
+  "sample_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "draft_decode_tps_mean": 61.13375,
+  "target_decode_tps_mean": 16.5275,
+  "spec_decode_tps_mean": 5.924875,
+  "speedup_vs_target_mean": 0.3587870067214447,
+  "spec_accept_pct_mean": 16.227,
+  "spec_n_predict_mean": 66.75,
+  "spec_n_drafted_mean": 298.0,
+  "spec_n_accept_mean": 47.125
+}
