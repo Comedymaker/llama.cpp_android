@@ -1,0 +1,16 @@
+
+
+Summarize the following CNN/DailyMail news article in 2-3 concise sentences.
+Return only the summary. Do not include reasoning.
+
+Article:
+(CNN)What do we have for the contestant on "The Price Is Right"? A brand-new car! Whoops. That wasn't supposed to happen. On Thursday's edition of the popular game show, model Manuela Arbelaez accidentally revealed the correct answer to a guessing game for a new Hyundai Sonata. Host Drew Carey couldn't stop laughing. "Congratulations! Manuela just gave you a car!" he exulted. Arbelaez was mortified, attempting to hide behind the display. But everything turned out OK, she tweeted later. It's been a busy week for "The Price Is Right." On Wednesday, former host Bob Barker, 91, showed up to run his old show.
+
+Summary: On Thursday's "The Price Is Right," contestant Manuela Arbelaez accidentally revealed the correct answer to a Hyundai Sonata guess, leading to a humorous moment with host Drew Carey. The incident was later shared on Arbelaez's Twitter. The show also saw former host Bob Barker appear on Wednesday. 
+
+Wait, the article says "It's been a busy week for 'The Price Is Right.' On Wednesday, former host Bob Barker, 91, showed up to run his old show." So the summary should include that Bob Barker appeared on Wednesday. But the original summary I wrote mentions that. So the summary is correct. But the user wants the summary to be 2-3 concise sentences. Let me check again.
+
+The original article mentions that on Thursday, Manuela accidentally revealed
+
+
+

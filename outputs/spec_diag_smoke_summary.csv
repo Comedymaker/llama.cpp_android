@@ -1,0 +1,4 @@
+mode,count,total_decode_time_ms_mean,total_decode_time_ms_std,draft_time_ms_mean,draft_time_ms_std,target_verify_time_ms_mean,target_verify_time_ms_std,accept_reject_time_ms_mean,accept_reject_time_ms_std,generated_tokens_mean,generated_tokens_std,drafted_tokens_mean,drafted_tokens_std,accepted_tokens_mean,accepted_tokens_std,acceptance_rate_mean,acceptance_rate_std,decode_tok_per_s_mean,decode_tok_per_s_std
+true_target_only,1,408.266000,0.000000,0.000000,0.000000,407.167000,0.000000,0.955000,0.000000,3.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,7.348000,0.000000
+spec_draft_max_0,1,1017.690000,0.000000,803.798000,0.000000,212.223000,0.000000,1.383000,0.000000,3.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,2.948000,0.000000
+speculative,1,807.913000,0.000000,570.383000,0.000000,235.843000,0.000000,1.566000,0.000000,5.000000,0.000000,3.000000,0.000000,3.000000,0.000000,1.000000,0.000000,6.189000,0.000000

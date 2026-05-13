@@ -1,0 +1,14 @@
+
+
+Summarize the following CNN/DailyMail news article in 2-3 concise sentences.
+Return only the summary. Do not include reasoning.
+
+Article:
+(CNN)For the first time in eight years, a TV legend returned to doing what he does best. Contestants told to "come on down!" on the April 1 edition of "The Price Is Right" encountered not host Drew Carey but another familiar face in charge of the proceedings. Instead, there was Bob Barker, who hosted the TV game show for 35 years before stepping down in 2007. Looking spry at 91, Barker handled the first price-guessing game of the show, the classic "Lucky Seven," before turning hosting duties over to Carey, who finished up. Despite being away from the show for most of the past eight years, Barker didn't seem to miss a beat.
+
+Summary: Bob Barker made a surprise return to "The Price Is Right" for the first time in eight years, hosting the April 1 episode and performing the classic "Lucky Seven" game before handing over to Drew Carey. Barker, who previously hosted the show for 35 years until 2007, appeared spry at 91 and seamlessly transitioned back into his former role. The event marked a nostalgic moment for fans and highlighted Barker's enduring connection to the game show. 
+
+Okay, let me check if this meets the user's requirements. They wanted a summary of the article in 2-3 concise sentences, only the summary, no reasoning. The original summary provided is three sentences, which fits. It mentions Barker's return after eight years, his hosting of the game,
+
+
+

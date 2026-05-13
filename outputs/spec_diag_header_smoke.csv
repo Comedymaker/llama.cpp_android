@@ -1,0 +1,4 @@
+sample_id,mode,total_decode_time_ms,draft_time_ms,target_verify_time_ms,accept_reject_time_ms,generated_tokens,drafted_tokens,accepted_tokens,acceptance_rate,decode_tok_per_s,draft_vocab_convert_time_ms,draft_prompt_sync_time_ms,draft_decode_time_ms,draft_sampling_time_ms,draft_other_time_ms,draft_returned_tokens,draft_effective_tokens,target_verify_batch_tokens,draft_prompt_decode_calls,draft_prompt_decode_tokens,draft_decode_calls,draft_decode_tokens,target_verify_calls,draft_tok_per_s_in_spec,draft_decode_tok_per_s,verify_tok_per_s
+0,true_target_only,32.915,0.000,31.851,0.905,3,0,0,0.000000,91.144,0.000,0.000,0.000,0.000,0.000,0,0,3,0,0,0,0,3,0.000,0.000,94.189
+1,spec_draft_max_0,80.270,45.330,33.959,0.838,3,0,0,0.000000,37.374,0.000,0.057,45.171,0.091,0.011,0,0,3,0,0,3,3,3,0.000,66.414,88.342
+2,speculative,79.954,45.617,33.412,0.822,3,2,1,0.500000,37.522,0.000,0.057,44.849,0.702,0.009,2,2,4,0,0,2,2,2,43.843,44.594,119.717

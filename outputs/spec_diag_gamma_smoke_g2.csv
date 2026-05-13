@@ -1,0 +1,4 @@
+sample_id,mode,total_decode_time_ms,draft_time_ms,target_verify_time_ms,accept_reject_time_ms,generated_tokens,drafted_tokens,accepted_tokens,acceptance_rate,decode_tok_per_s
+0,true_target_only,169.768,0.000,168.565,1.017,3,0,0,0.000000,17.671
+1,spec_draft_max_0,678.018,487.384,189.655,0.846,3,0,0,0.000000,4.425
+2,speculative,731.601,513.425,217.105,0.972,4,3,2,0.666667,5.467

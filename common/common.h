@@ -274,6 +274,7 @@ struct common_params_speculative {
     int32_t n_min   = 0; // minimum number of draft tokens to use for speculative decoding
     float   p_split = 0.1f; // speculative decoding split probability
     float   p_min   = 0.75f; // minimum speculative decoding probability (greedy)
+    bool    draft_eager_kv = false; // eagerly decode the last returned draft token into draft KV
 
     // ngram-based speculative decoding
 

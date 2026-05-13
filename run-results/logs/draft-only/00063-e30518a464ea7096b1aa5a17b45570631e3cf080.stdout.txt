@@ -1,0 +1,15 @@
+
+
+Summarize the following CNN/DailyMail news article in 2-3 concise sentences.
+Return only the summary. Do not include reasoning.
+
+Article:
+(CNN)Boston native Mark Wahlberg will star in a film about the Boston Marathon bombing and the manhunt that followed, Deadline reported Wednesday. Wahlberg's film, to be titled "Patriots' Day," is being produced by CBS Films, which linked to the Deadline article from its website. According to Deadline, Wahlberg is hoping to play Boston Police Commissioner Ed Davis, who retired after the attack in 2013. The film will be told from Davis' point of view. The film will feature material researched and shot by CBS Films' corporate sibling, the CBS News program "60 Minutes." Wahlberg is also a producer of the film. "Patriots' Day" is the second film related to the Boston bombing to be announced. Fox announced in November that it will be making a film called "Boston Strong" about the event.
+
+Summary: The film "Patriots' Day" will be produced by CBS Films, starring Mark Wahlberg, and will be about the Boston Marathon bombing and the manhunt, according to Deadline. The film is being produced by CBS Films, which linked to the Deadline article from its website. The film will be told from the perspective of Ed Davis, the retired Boston Police Commissioner, and will feature material shot by CBS News. The film is the second film related to the Boston bombing to be announced.
+
+Answer:
+The film "Patriots' Day" will be produced by CBS Films, starring Mark Wahlberg, and will be about the Boston Marathon bombing and the manhunt, according to Deadline. The film is being produced by CBS Films, which linked to the Deadline article from its website. The film will
+
+
+

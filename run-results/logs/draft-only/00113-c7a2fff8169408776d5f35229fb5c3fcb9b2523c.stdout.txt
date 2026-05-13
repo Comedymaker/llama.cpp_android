@@ -1,0 +1,21 @@
+
+
+Summarize the following CNN/DailyMail news article in 2-3 concise sentences.
+Return only the summary. Do not include reasoning.
+
+Article:
+(CNN)#UporDown? That's the trending question on social media, thanks to a photo of a cat coming down some stairs. Or is it going up some stairs? (And you thought you were done with this kind of optical illusion free-for-all after #TheDress.) The picture was apparently uploaded on Imgur a few days ago and has caught fire thanks to a post on the website 9gag.com. Some people are noting the apparent motion of the cat. Others are commenting about the construction of the stairs. (Nobody has mentioned that some cats we could name would be more likely to stop in the middle of the steps and play with a mousie.) Of course, where there's public debate, there are advertisers waiting to take advantage of the situation. Taxes? Now, those are REALLY confusing.
+
+Summary: The article discusses a social media phenomenon involving a cat's movement on stairs, leading to public debate and potential advertising opportunities. The key points are the cat's movement, the debate on social media, and the potential for advertisers to capitalize on the situation.
+Answer:
+
+The article highlights a social media debate over a cat's movement on stairs, leading to public interest and potential advertising opportunities. It mentions the cat's apparent motion, the debate on optical illusions, and the possibility of advertisers exploiting the situation.
+
+**Answer:**
+The article discusses a social media phenomenon involving a cat's movement on stairs, leading to public debate and potential advertising opportunities. It mentions the cat's apparent motion, the debate on optical illusions, and the possibility of advertisers exploiting the situation. 
+
+**Answer:**
+The article discusses a social media
+
+
+

@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: twfir-kcmtj
+created: 2026-04-28T14:19:43+08:00

@@ -1,0 +1,12 @@
+
+
+Summarize the following CNN/DailyMail news article in 2-3 concise sentences.
+Return only the summary. Do not include reasoning.
+
+Article:
+Washington (CNN)Washington was rocked late Thursday by shootings -- one at the gates of the U.S. Census Bureau's headquarters and another in a popular area packed with restaurant patrons. The shootings were connected, authorities said. They began with what authorities believe was a domestic kidnapping incident, according to D.C. Police Chief Cathy Lanier. The suspect's vehicle was spotted outside the Census Bureau, which is in Suitland, Maryland. A guard apparently approached the vehicle and saw two people arguing. That guard was then shot at least once in the upper body, said Prince George's County Fire Department spokesman Mark Brady. The guard was in extremely critical condition, according to Brady. The police chief said the suspect then fled the scene. Officers picked up the chase, and the suspect fired gunshots at multiple locations, Lanier said. The chase ended in a crash on Washington's busy H Street. A shootout ensues, Lanier said. An officer and the suspect were wounded, according to the police chief. Both were conscious and talking when they left the scene. "Right now, we have every reason to believe that the car that we have in this last incident here is the same car involved and the same person involved in the kidnapping," she said. Lanier told reporters the kidnapping victim was located and is in good condition. She did not identify the suspect, nor the guard, nor the officer who were injured. Steve Brusk reported from Washington. Dana Ford wrote from Atlanta. CNN's Greg Botelho also contributed to this report.
+
+Summary: A shooting incident at the U.S. Census Bureau's headquarters in Suitland, Maryland, and another in a busy area of Washington were linked, beginning with a domestic kidnapping. The suspect, who fled after shooting a guard critically, was pursued by police, leading to a crash and shootout on H Street, where an officer and suspect were wounded. The kidnapping victim was found safe, and authorities confirmed the suspect's vehicle and involvement in both incidents. The suspect remains unidentified. The incident began with a domestic kidnapping, leading to a shooting at the Census Bureau and a subsequent chase resulting in a crash and shootout on H Street. The suspect, who shot a guard critically, was pursued by police, leading to injuries for an officer and the suspect. The kidnapping victim was located safely, and the suspect remains unidentified.
+
+
+

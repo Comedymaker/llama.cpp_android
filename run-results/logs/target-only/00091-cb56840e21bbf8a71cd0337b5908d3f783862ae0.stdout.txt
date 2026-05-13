@@ -1,0 +1,12 @@
+
+
+Summarize the following CNN/DailyMail news article in 2-3 concise sentences.
+Return only the summary. Do not include reasoning.
+
+Article:
+(CNN)They're not gonna take it anymore. Really. Twisted Sister says that its 2016 tour will be its last, according to a press release. Next year marks the band's 40th anniversary, and to celebrate, the tour is being titled "Forty and F*ck It." "It's official: Farewell," Twisted Sister singer Dee Snider posted on Facebook. Snider also noted that the band will play with a new drummer, Mike Portnoy of Adrenaline Mob. Portnoy replaces A.J. Pero, who died March 20. The band will also perform two shows in Pero's honor: one at Las Vegas' Hard Rock Hotel and Casino, the other at the Starland Ballroom in Sayreville, New Jersey. The latter is in support of Pero's family. Twisted Sister's biggest hit, "We're Not Gonna Take It," hit the Top Forty in 1984 and was featured in a popular video.
+
+Summary: Twisted Sister announced their 2016 tour, "Forty and F*ck It," as their final one, marking their 40th anniversary. The band will include new drummer Mike Portnoy and honor late drummer A.J. Pero with two shows, supporting his family. Their hit "We're Not Gonna Take It" reached the Top Forty in 1984. Twisted Sister has announced their final 2016 tour, "Forty and F*ck It," to celebrate their 40th anniversary. The tour will feature new drummer Mike Portnoy and include two shows honoring late drummer A.J. Pero, with one supporting his family. Their iconic 1984 hit "We're Not Gonna Take It" reached the
+
+
+

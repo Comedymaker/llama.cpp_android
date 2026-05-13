@@ -1,0 +1,13 @@
+metric,value
+framework_overhead_ms,3485.633200
+speculative_vs_true_speedup,0.811640
+speculative_vs_zero_draft_speedup,1.091446
+target_verify_reduction_ms,943.648400
+framework_overhead_ms_median,3442.449000
+speculative_vs_true_speedup_median,0.812512
+speculative_vs_zero_draft_speedup_median,1.087992
+target_verify_reduction_ms_median,1041.261000
+draft_overhead_ms,3112.049200
+net_time_saved_ms,-2436.272400
+accepted_tokens_per_drafted_token,0.701053
+accepted_tokens_per_sample,66.600000

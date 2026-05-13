@@ -1,0 +1,125 @@
+// Syncthing ignore patterns for this llama.cpp checkout.
+// Keep source, docs, configs, and small tracked assets syncable; skip local
+// build outputs, caches, logs, generated data, and large model files.
+
+// VCS and editor state
+/.git
+/.cache
+/.ccls-cache
+/.direnv
+/.idea
+/.vs
+/.vscode
+/.windsurf
+/.swiftpm
+/.gemini
+/*.code-workspace
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+// Build outputs
+/.build
+/build
+/build-*
+/build_*
+/release
+/debug
+/out
+/tmp
+/tags
+/result
+/zig-out
+/zig-cache
+/vulkan-shaders-gen
+/rpc-server
+/main
+/server
+/llama-*
+/libllama.so
+/common/build-info.cpp
+
+// Compiled objects and generated binaries
+*.a
+*.bin
+*.d
+*.dll
+*.dylib
+*.etag
+*.exe
+*.gcda
+*.gcno
+*.gcov
+*.metallib
+*.o
+*.obj
+*.pdb
+*.so
+a.out.*
+
+// Models and large generated datasets
+/models-mnt
+!/models
+!/models/.editorconfig
+!/models/templates
+!/models/templates/**
+!/models/ggml-vocab-*.gguf*
+*.gguf
+*.gguf.json
+/models/**
+/hellaswag_val_full.txt
+/winogrande-debiased-eval.csv
+/wikitext-2-raw
+/lora-tests
+
+// Logs, benchmark outputs, and local experiment results
+*.log
+*.tmp
+*.lastModified
+/*_scan.json
+/*_scan.jsonl
+/*_results.json
+/*_profile.json
+/*_eval.json
+/baseline.txt
+/bench_stability.json
+/edgelllm_smoke.csv
+/test.txt
+
+// Python, Node, and package-manager caches
+/.venv
+/.mypy_cache
+/.pytest_cache
+/.ruff_cache
+__pycache__
+*.pyc
+*.pyo
+/poetry.toml
+/tools/server/webui/node_modules
+/tools/server/webui/dist
+node_modules
+
+// Coverage and test artifacts
+/gcovr-report
+/lcov-report
+/tests/test-backend-ops
+/tests/test-double-float
+/tests/test-grad0
+/tests/test-grammar-parser
+/tests/test-llama-grammar
+/tests/test-opt
+/tests/test-quantize-fns
+/tests/test-quantize-perf
+/tests/test-rope
+/tests/test-sampling
+/tests/test-tokenizer-0
+/tests/test-tokenizer-1-bpe
+/tests/test-tokenizer-1-spm
+
+// Generated server web UI headers
+/tools/server/*.css.hpp
+/tools/server/*.html.hpp
+/tools/server/*.js.hpp
+/tools/server/*.mjs.hpp
+/tools/server/*.gz.hpp

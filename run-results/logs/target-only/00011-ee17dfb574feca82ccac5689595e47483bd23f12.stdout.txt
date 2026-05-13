@@ -1,0 +1,12 @@
+
+
+Summarize the following CNN/DailyMail news article in 2-3 concise sentences.
+Return only the summary. Do not include reasoning.
+
+Article:
+London (CNN)A 19-year-old man was charged Wednesday with terror offenses after he was arrested as he returned to Britain from Turkey, London's Metropolitan Police said. Yahya Rashid, a UK national from northwest London, was detained at Luton airport on Tuesday after he arrived on a flight from Istanbul, police said. He's been charged with engaging in conduct in preparation of acts of terrorism, and with engaging in conduct with the intention of assisting others to commit acts of terrorism. Both charges relate to the period between November 1 and March 31. Rashid is due to appear in Westminster Magistrates' Court on Wednesday, police said. CNN's Lindsay Isaac contributed to this report.
+
+Summary: A 19-year-old UK national, Yahya Rashid, was charged with terrorism-related offenses after being arrested at Luton Airport upon returning from Turkey. He faces charges of preparing for terrorist acts and assisting others in terrorism between November 1 and March 31. Rashid is set to appear in court on Wednesday. A 19-year-old UK national, Yahya Rashid, was charged with terrorism-related offenses after being arrested at Luton Airport upon returning from Turkey. He faces charges of preparing for terrorist acts and assisting others in terrorism between November 1 and March 31. Rashid is set to appear in court on Wednesday. A 19-year-old UK national, Yahya Rashid, was charged with terrorism-related offenses after being arrested at Luton
+
+
+

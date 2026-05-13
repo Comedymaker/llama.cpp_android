@@ -7,7 +7,9 @@
 
 #include <clocale>
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
+#include <inttypes.h>
 #include <string>
 #include <vector>
 
@@ -27,10 +29,7 @@ int main(int argc, char ** argv) {
 
     common_init();
 
-    if (params.speculative.mparams_dft.path.empty()) {
-        LOG_ERR("%s: --model-draft is required\n", __func__);
-        return 1;
-    }
+    const bool true_target_only = params.speculative.mparams_dft.path.empty();
 
     // init llama.cpp
     llama_backend_init();
@@ -52,7 +51,7 @@ int main(int argc, char ** argv) {
     llama_model_ptr model_dft;
 
     // TODO: simplify this logic
-    {
+    if (!true_target_only) {
         const auto & params_spec = params.speculative;
 
         auto params_dft = params;
@@ -136,15 +135,29 @@ int main(int argc, char ** argv) {
     // init the speculator
     const auto & params_spec = params.speculative;
 
-    struct common_speculative * spec = common_speculative_init(params.speculative, ctx_tgt);
+    struct common_speculative * spec = nullptr;
 
-    common_speculative_begin(spec, prompt_tgt);
+    if (!true_target_only) {
+        spec = common_speculative_init(params.speculative, ctx_tgt);
+        common_speculative_begin(spec, prompt_tgt);
+    }
 
     llama_batch batch_tgt = llama_batch_init(llama_n_batch(ctx_tgt), 0, 1);
 
     const auto t_enc_end = ggml_time_us();
 
     const auto t_dec_start = ggml_time_us();
+
+    int64_t t_draft_us         = 0;
+    int64_t t_target_verify_us = 0;
+    int64_t t_accept_reject_us = 0;
+
+    common_speculative_draft_profile draft_profile;
+
+    uint64_t draft_returned_tokens      = 0;
+    uint64_t draft_effective_tokens     = 0;
+    uint64_t target_verify_batch_tokens = 0;
+    uint64_t target_verify_calls        = 0;
 
     while (true) {
         // optionally, generate draft tokens that can be appended to the target batch
@@ -154,7 +167,14 @@ int main(int argc, char ** argv) {
         // offloaded to a remote device. it doesn't even have to be based on an LLM. instead, it can provide tokens
         // from a cache or lookup tables.
         //
-        llama_tokens draft = common_speculative_draft(spec, params_spec, prompt_tgt, id_last);
+        llama_tokens draft;
+        if (!true_target_only) {
+            const auto t_draft_start = ggml_time_us();
+            draft = common_speculative_draft(spec, params_spec, prompt_tgt, id_last, &draft_profile);
+            const auto t_draft_end = ggml_time_us();
+            t_draft_us += t_draft_end - t_draft_start;
+            draft_returned_tokens += draft.size();
+        }
 
         //LOG_DBG("draft: %s\n", string_from(ctx_dft, draft).c_str());
 
@@ -169,13 +189,21 @@ int main(int argc, char ** argv) {
                 draft.clear();
             }
 
+            draft_effective_tokens += draft.size();
+
             for (size_t i = 0; i < draft.size(); ++i) {
                 common_batch_add(batch_tgt, draft[i], n_past + i, { 0 }, true);
             }
 
             //LOG_DBG("target batch: %s\n", string_from(ctx_tgt, batch_tgt).c_str());
 
+            target_verify_batch_tokens += batch_tgt.n_tokens;
+            target_verify_calls++;
+
+            const auto t_target_verify_start = ggml_time_us();
             llama_decode(ctx_tgt, batch_tgt);
+            const auto t_target_verify_end = ggml_time_us();
+            t_target_verify_us += t_target_verify_end - t_target_verify_start;
         }
 
         // sample from the full target batch and return the accepted tokens based on the target sampler
@@ -185,7 +213,17 @@ int main(int argc, char ** argv) {
         // available logits from the batch and sample the next token until we run out of logits or the sampler
         // disagrees with the draft
         //
-        const auto ids = common_sampler_sample_and_accept_n(smpl, ctx_tgt, draft);
+        llama_tokens ids;
+        const auto t_accept_reject_start = ggml_time_us();
+        if (true_target_only) {
+            const llama_token id = common_sampler_sample(smpl, ctx_tgt, -1);
+            common_sampler_accept(smpl, id, true);
+            ids.push_back(id);
+        } else {
+            ids = common_sampler_sample_and_accept_n(smpl, ctx_tgt, draft);
+        }
+        const auto t_accept_reject_end = ggml_time_us();
+        t_accept_reject_us += t_accept_reject_end - t_accept_reject_start;
 
         //LOG_DBG("ids: %s\n", string_from(ctx_tgt, ids).c_str());
 
@@ -248,6 +286,67 @@ int main(int argc, char ** argv) {
     LOG_INF("n_drafted = %d\n", n_drafted);
     LOG_INF("n_accept  = %d\n", n_accept);
     LOG_INF("accept    = %.3f%%\n", 100.0f * n_accept / n_drafted);
+
+    const double total_decode_time_ms  = (t_dec_end - t_dec_start) / 1000.0;
+    const double draft_time_ms         = t_draft_us / 1000.0;
+    const double target_verify_time_ms = t_target_verify_us / 1000.0;
+    const double accept_reject_time_ms = t_accept_reject_us / 1000.0;
+    const double draft_vocab_convert_time_ms = draft_profile.t_vocab_convert_us / 1000.0;
+    const double draft_prompt_sync_time_ms   = draft_profile.t_prompt_sync_us   / 1000.0;
+    const double draft_decode_time_ms        = draft_profile.t_decode_us        / 1000.0;
+    const double draft_sampling_time_ms      = draft_profile.t_sampling_us      / 1000.0;
+    const double draft_other_time_ms         = draft_time_ms - draft_vocab_convert_time_ms - draft_prompt_sync_time_ms - draft_decode_time_ms - draft_sampling_time_ms;
+    const double draft_reuse_scan_time_ms            = draft_profile.t_reuse_scan_us / 1000.0;
+    const double draft_kv_cache_edit_time_ms         = draft_profile.t_kv_cache_edit_us / 1000.0;
+    const double draft_prompt_catchup_decode_time_ms = draft_profile.t_prompt_catchup_decode_us / 1000.0;
+    const double draft_eager_kv_decode_time_ms       = draft_profile.t_eager_kv_decode_us / 1000.0;
+    const double acceptance_rate       = n_drafted > 0 ? (double) n_accept / n_drafted : 0.0;
+    const double decode_tok_per_s      = total_decode_time_ms > 0.0 ? 1000.0 * n_predict / total_decode_time_ms : 0.0;
+    const double draft_tok_per_s_in_spec = draft_time_ms > 0.0 ? 1000.0 * draft_returned_tokens / draft_time_ms : 0.0;
+    const double draft_decode_tok_per_s  = draft_decode_time_ms > 0.0 ? 1000.0 * draft_profile.n_decode_tokens / draft_decode_time_ms : 0.0;
+    const double verify_tok_per_s        = target_verify_time_ms > 0.0 ? 1000.0 * target_verify_batch_tokens / target_verify_time_ms : 0.0;
+    const char * sample_id             = std::getenv("LLAMA_SPEC_PROFILE_SAMPLE_ID");
+    if (sample_id == nullptr) {
+        sample_id = "0";
+    }
+    const char * mode = true_target_only ? "true_target_only" : params_spec.n_max == 0 ? "spec_draft_max_0" : "speculative";
+
+    LOG_INF("\n");
+    LOG_INF("sample_id,mode,total_decode_time_ms,draft_time_ms,target_verify_time_ms,accept_reject_time_ms,generated_tokens,drafted_tokens,accepted_tokens,acceptance_rate,decode_tok_per_s,draft_vocab_convert_time_ms,draft_prompt_sync_time_ms,draft_decode_time_ms,draft_sampling_time_ms,draft_other_time_ms,draft_returned_tokens,draft_effective_tokens,target_verify_batch_tokens,draft_prompt_decode_calls,draft_prompt_decode_tokens,draft_decode_calls,draft_decode_tokens,target_verify_calls,draft_tok_per_s_in_spec,draft_decode_tok_per_s,verify_tok_per_s,draft_reuse_scan_time_ms,draft_kv_cache_edit_time_ms,draft_prompt_catchup_decode_time_ms,draft_eager_kv_decode_time_ms,draft_eager_kv_decode_calls,draft_eager_kv_decode_tokens\n");
+    LOG_INF("%s,%s,%.3f,%.3f,%.3f,%.3f,%d,%d,%d,%.6f,%.3f,%.3f,%.3f,%.3f,%.3f,%.3f,%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%.3f,%.3f,%.3f,%.3f,%.3f,%.3f,%.3f,%" PRIu64 ",%" PRIu64 "\n",
+            sample_id,
+            mode,
+            total_decode_time_ms,
+            draft_time_ms,
+            target_verify_time_ms,
+            accept_reject_time_ms,
+            n_predict,
+            n_drafted,
+            n_accept,
+            acceptance_rate,
+            decode_tok_per_s,
+            draft_vocab_convert_time_ms,
+            draft_prompt_sync_time_ms,
+            draft_decode_time_ms,
+            draft_sampling_time_ms,
+            draft_other_time_ms,
+            draft_returned_tokens,
+            draft_effective_tokens,
+            target_verify_batch_tokens,
+            draft_profile.n_prompt_decode_calls,
+            draft_profile.n_prompt_decode_tokens,
+            draft_profile.n_decode_calls,
+            draft_profile.n_decode_tokens,
+            target_verify_calls,
+            draft_tok_per_s_in_spec,
+            draft_decode_tok_per_s,
+            verify_tok_per_s,
+            draft_reuse_scan_time_ms,
+            draft_kv_cache_edit_time_ms,
+            draft_prompt_catchup_decode_time_ms,
+            draft_eager_kv_decode_time_ms,
+            draft_profile.n_eager_kv_decode_calls,
+            draft_profile.n_eager_kv_decode_tokens);
 
     LOG_INF("\n");
     LOG_INF("draft:\n\n");

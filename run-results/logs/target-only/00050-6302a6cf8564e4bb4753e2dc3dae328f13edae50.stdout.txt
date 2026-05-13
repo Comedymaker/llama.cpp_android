@@ -1,0 +1,12 @@
+
+
+Summarize the following CNN/DailyMail news article in 2-3 concise sentences.
+Return only the summary. Do not include reasoning.
+
+Article:
+(CNN)Deion Sanders is such a dad. The NFL legend called out Deion Sanders Jr. on Twitter for saying he only eats "hood doughnuts." In response, the elder Sanders -- in front of his 912,000 followers -- reminded his son he has a trust fund, a condo and his own clothing line called "Well Off." "You're a Huxtable with a million $ trust fund. Stop the hood stuff!" Sanders followed it up with another tweet that included the hashtags #versacesheets #Huxtable and #Trustfund. Junior is a wide receiver at Southern Methodist University, an aspiring entrepreneur and occasional rapper. His Twitter timeline is a mix of biblical verses, motivational quotes and references to sports, cars, school and Balenciaga shoes. He also has gone on record with his love for "hood doughnuts," or confections from "a place in the hood," saying "if my doughnuts don't come in a plain white box, I don't want them!" His father promptly put him in his place. Sanders Jr. seemed to take the public browbeating in stride, retweeting his father's comments. At least he knew better than to delete them.
+
+Summary: Deion Sanders Jr., a Southern Methodist University wide receiver, faced public criticism from his father, NFL legend Deion Sanders, for promoting "hood doughnuts," leading to a humorous exchange on social media where Sanders reminded his son of his financial privileges. The father-son dynamic unfolded with Sanders Jr. retweeting his father's comments, showing he accepted the critique without deleting them. The interaction highlighted their contrasting public personas, with Sanders Jr. blending sports, fashion, and motivational content, while his father used the platform to reinforce his own status and values. Deion Sanders Jr., a Southern Methodist University wide receiver, faced public criticism from his father, NFL legend Deion Sanders, for promoting "hood doughnuts," leading to a humorous exchange on social media where Sanders reminded his son of his financial privileges
+
+
+

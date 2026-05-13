@@ -1,0 +1,17 @@
+
+
+Summarize the following CNN/DailyMail news article in 2-3 concise sentences.
+Return only the summary. Do not include reasoning.
+
+Article:
+(CNN)Anyone who has given birth -- or been an observer of the event -- knows how arduous it can be. But to do it live on the Internet? With two hooves sticking out for several minutes in the midst of labor? Luckily, Katie -- a giraffe at the Dallas Zoo -- is a champ. In an hour-long labor captured by 10 cameras and streamed live by Animal Planet, Katie gave birth to a not-so-little baby (about 6 feet tall) early Friday evening. There was no immediate word on the newborn's gender or condition. But there were good signs, as seen on the live stream and Dallas Zoo's Twitter feed -- like its ears moving, its efforts to stand, and its nursing (or at least trying to nurse) from mom. "We're so proud," the zoo tweeted. The newcomer's debut was a long time coming, especially when you count for Katie's 15-month gestation period -- average for a giraffe, according to Animal Planet. The baby joins a sister, 4-year-old calf Jamie. It wasn't immediately known how many people online saw Katie go into labor and give birth. But the giraffe definitely did have watchers in the form of fellow giraffes who saw the scene unfold from an abutting barn, one of them being Katie's BFF Jade. The fact that the spunky Katie held up so well under the spotlight isn't a total shocker.  The zoo describes her as the "diva" among a herd of 12 giraffes at the zoo who loves to "toss her head around" when she doesn't like something. As Animal Planet noted, "She's one of the only giraffes at the Dallas Zoo who can stick her long tongue out on cue." CNN's Justin Lear contributed to this report.
+
+Summary: The article reports on a giraffe, Katie, giving birth to a baby in the Dallas Zoo. The baby was 6 feet tall and had a long gestation period. The zoo's description of her as a "diva" and her ability to hold her tongue out on cue were highlighted. The article mentions the baby's gender and condition, but no immediate details were provided. The article also notes that the baby joined a sister calf and that the zoo had watchers from other giraffes.
+
+The summary should be in 2-3 sentences, concise, and only include the summary.
+Answer:
+
+The article reports on a giraffe, Katie, giving birth to a baby in the Dallas Zoo. The baby, 6 feet tall, had a long gestation period, and the zoo described her
+
+
+

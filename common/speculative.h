@@ -3,7 +3,27 @@
 #include "llama.h"
 #include "common.h"
 
+#include <cstdint>
+
 struct common_speculative;
+
+struct common_speculative_draft_profile {
+    int64_t t_vocab_convert_us = 0;
+    int64_t t_prompt_sync_us   = 0;
+    int64_t t_decode_us        = 0;
+    int64_t t_sampling_us      = 0;
+    int64_t t_reuse_scan_us    = 0;
+    int64_t t_kv_cache_edit_us = 0;
+    int64_t t_prompt_catchup_decode_us = 0;
+    int64_t t_eager_kv_decode_us = 0;
+
+    uint64_t n_prompt_decode_calls  = 0;
+    uint64_t n_prompt_decode_tokens = 0;
+    uint64_t n_decode_calls         = 0;
+    uint64_t n_decode_tokens        = 0;
+    uint64_t n_eager_kv_decode_calls  = 0;
+    uint64_t n_eager_kv_decode_tokens = 0;
+};
 
 // comma separated list of all types
 std::string common_speculative_type_name_str();
@@ -32,7 +52,8 @@ llama_tokens common_speculative_draft(
                      common_speculative * spec,
         const common_params_speculative & params,
                      const llama_tokens & prompt,
-                            llama_token   id_last);
+                            llama_token   id_last,
+        common_speculative_draft_profile * profile = nullptr);
 
 // informs the speculative decoder that n_accepted tokens were accepted by the target model
 void common_speculative_accept(common_speculative * spec, uint16_t n_accepted);

@@ -1,0 +1,12 @@
+
+
+Summarize the following CNN/DailyMail news article in 2-3 concise sentences.
+Return only the summary. Do not include reasoning.
+
+Article:
+(CNN)#UporDown? That's the trending question on social media, thanks to a photo of a cat coming down some stairs. Or is it going up some stairs? (And you thought you were done with this kind of optical illusion free-for-all after #TheDress.) The picture was apparently uploaded on Imgur a few days ago and has caught fire thanks to a post on the website 9gag.com. Some people are noting the apparent motion of the cat. Others are commenting about the construction of the stairs. (Nobody has mentioned that some cats we could name would be more likely to stop in the middle of the steps and play with a mousie.) Of course, where there's public debate, there are advertisers waiting to take advantage of the situation. Taxes? Now, those are REALLY confusing.
+
+Summary: A photo of a cat on stairs has sparked online debate over whether it's going up or down, reminiscent of the #TheDress illusion, with users discussing the image's ambiguity and advertisers capitalizing on the trend. The image, shared on Imgur and 9gag, has led to varied interpretations, including comments on the stairs' construction and the cat's behavior, while a humorous remark about taxes adds to the discussion. The trend highlights how social media can turn simple images into viral topics. The article is from CNN/DailyMail. The summary should be 2-3 concise sentences. The summary should not include any markdown. The summary should not include any additional information beyond what is in the article. The summary should not include any opinions or interpretations beyond what is stated in the article.
+
+
+

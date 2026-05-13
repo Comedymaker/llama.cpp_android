@@ -139,7 +139,8 @@ struct common_speculative_state {
             const common_params_speculative & params,
             const llama_tokens & prompt_tgt,
             llama_token id_last,
-            llama_tokens & result) = 0;
+            llama_tokens & result,
+            common_speculative_draft_profile * profile) = 0;
 
     virtual void accept(uint16_t n_accepted) = 0;
 };
@@ -225,7 +226,8 @@ struct common_speculative_state_draft : public common_speculative_state {
             const common_params_speculative & params,
             const llama_tokens & prompt_tgt,
             llama_token id_last,
-            llama_tokens & result) override {
+            llama_tokens & result,
+            common_speculative_draft_profile * profile) override {
         auto * spec = this;
 
         auto & batch      = spec->batch;
@@ -243,6 +245,8 @@ struct common_speculative_state_draft : public common_speculative_state {
 
         llama_tokens prompt_cnv;
         if (!spec->vocab_cmpt) {
+            const auto t_start = ggml_time_us();
+
             std::string text;
 
             text = common_detokenize(ctx_tgt, prompt_tgt, true);
@@ -265,7 +269,13 @@ struct common_speculative_state_draft : public common_speculative_state {
 
             LOG_DBG("main->draft detokenized id_last(%d): '%s'\n", id_last, text.c_str());
             id_last = common_tokenize(ctx_dft, text, false, true)[0];
+
+            if (profile) {
+                profile->t_vocab_convert_us += ggml_time_us() - t_start;
+            }
         }
+
+        const auto t_prompt_sync_start = ggml_time_us();
 
         const llama_tokens & prompt_cur = spec->vocab_cmpt ? prompt_tgt : prompt_cnv;
 
@@ -273,6 +283,7 @@ struct common_speculative_state_draft : public common_speculative_state {
 
         // reuse as much as possible from the old draft context
         // ideally, the draft context should be as big as the target context and we will always reuse the entire prompt
+        const auto t_reuse_scan_start = ggml_time_us();
         for (int i = 0; i < (int) prompt_dft.size(); ++i) {
             int cur = 0;
             while (i_start + cur < (int) prompt_cur.size() &&
@@ -286,12 +297,16 @@ struct common_speculative_state_draft : public common_speculative_state {
                 reuse_n = cur;
             }
         }
+        if (profile) {
+            profile->t_reuse_scan_us += ggml_time_us() - t_reuse_scan_start;
+        }
 
         LOG_DBG("%s: reuse_i = %d, reuse_n = %d, prompt = %d\n", __func__, reuse_i, reuse_n, (int) prompt_dft.size());
 
         result.clear();
         result.reserve(params.n_max);
 
+        const auto t_kv_cache_edit_start = ggml_time_us();
         if (reuse_n == 0) {
             llama_memory_clear(mem_dft, false);
             prompt_dft.clear();
@@ -305,6 +320,10 @@ struct common_speculative_state_draft : public common_speculative_state {
                     if (params.n_max <= (int) result.size()) {
                         break;
                     }
+                }
+
+                if (profile) {
+                    profile->t_prompt_sync_us += ggml_time_us() - t_prompt_sync_start;
                 }
 
                 return;
@@ -322,6 +341,9 @@ struct common_speculative_state_draft : public common_speculative_state {
                 prompt_dft.erase(prompt_dft.begin() + reuse_n, prompt_dft.end());
             }
         }
+        if (profile) {
+            profile->t_kv_cache_edit_us += ggml_time_us() - t_kv_cache_edit_start;
+        }
 
         // prepare a batch to evaluate any new tokens in the prompt
         common_batch_clear(batch);
@@ -337,7 +359,19 @@ struct common_speculative_state_draft : public common_speculative_state {
         if (batch.n_tokens > 0) {
             //LOG_DBG("%s: draft prompt batch: %s\n", __func__, string_from(ctx, batch).c_str());
 
+            if (profile) {
+                profile->n_prompt_decode_calls++;
+                profile->n_prompt_decode_tokens += batch.n_tokens;
+            }
+            const auto t_prompt_catchup_decode_start = ggml_time_us();
             llama_decode(ctx_dft, batch);
+            if (profile) {
+                profile->t_prompt_catchup_decode_us += ggml_time_us() - t_prompt_catchup_decode_start;
+            }
+        }
+
+        if (profile) {
+            profile->t_prompt_sync_us += ggml_time_us() - t_prompt_sync_start;
         }
 
         const llama_pos n_past = prompt_dft.size();
@@ -351,14 +385,25 @@ struct common_speculative_state_draft : public common_speculative_state {
 
         LOG_DBG("%s: draft prompt: %s\n", __func__, string_from(ctx_dft, prompt_dft).c_str());
 
+        const auto t_decode_start = ggml_time_us();
         llama_decode(ctx_dft, batch);
+        if (profile) {
+            profile->t_decode_us += ggml_time_us() - t_decode_start;
+            profile->n_decode_calls++;
+            profile->n_decode_tokens += batch.n_tokens;
+        }
 
+        const auto t_sampling_reset_start = ggml_time_us();
         common_sampler_reset(smpl);
+        if (profile) {
+            profile->t_sampling_us += ggml_time_us() - t_sampling_reset_start;
+        }
 
         // sample n_draft tokens from the draft model
         for (int i = 0; i < params.n_max; ++i) {
             common_batch_clear(batch);
 
+            const auto t_sampling_start = ggml_time_us();
             common_sampler_sample(smpl, ctx_dft, 0, true);
 
             const auto * cur_p = common_sampler_get_candidates(smpl, true);
@@ -372,33 +417,85 @@ struct common_speculative_state_draft : public common_speculative_state {
             const llama_token id = cur_p->data[0].id;
 
             common_sampler_accept(smpl, id, true);
+            if (profile) {
+                profile->t_sampling_us += ggml_time_us() - t_sampling_start;
+            }
 
             result.push_back(id);
 
-            if (params.n_max <= (int) result.size()) {
-                break;
-            }
+            const auto eager_decode_last = [&]() {
+                if (!params.draft_eager_kv || !spec->vocab_cmpt) {
+                    return;
+                }
 
-            // only collect very high-confidence draft tokens
-            if (cur_p->data[0].p < params.p_min) {
+                const auto * vocab_dft = llama_model_get_vocab(llama_get_model(ctx_dft));
+                if (llama_vocab_is_eog(vocab_dft, id)) {
+                    return;
+                }
+
+                const llama_pos pos = n_past + i + 1;
+                if (pos >= (llama_pos) llama_n_ctx(ctx_dft)) {
+                    return;
+                }
+
+                common_batch_clear(batch);
+                common_batch_add(batch, id, pos, { 0 }, true);
+
+                const auto t_eager_kv_decode_start = ggml_time_us();
+                const int ret = llama_decode(ctx_dft, batch);
+                const auto t_eager_kv_decode_end = ggml_time_us();
+                if (ret != 0) {
+                    LOG_DBG("%s: eager draft KV decode failed: %d\n", __func__, ret);
+                    return;
+                }
+
+                if (profile) {
+                    profile->t_decode_us += t_eager_kv_decode_end - t_eager_kv_decode_start;
+                    profile->n_decode_calls++;
+                    profile->n_decode_tokens += batch.n_tokens;
+                    profile->t_eager_kv_decode_us += t_eager_kv_decode_end - t_eager_kv_decode_start;
+                    profile->n_eager_kv_decode_calls++;
+                    profile->n_eager_kv_decode_tokens += batch.n_tokens;
+                }
+
+                prompt_dft.push_back(id);
+            };
+
+            const bool reached_n_max = params.n_max <= (int) result.size();
+            const bool below_p_min   = cur_p->data[0].p < params.p_min;
+
+            if (reached_n_max || below_p_min) {
+                eager_decode_last();
                 break;
             }
 
             common_batch_add(batch, id, n_past + i + 1, { 0 }, true);
 
             // evaluate the drafted tokens on the draft model
+            const auto t_draft_decode_start = ggml_time_us();
             llama_decode(ctx_dft, batch);
+            if (profile) {
+                profile->t_decode_us += ggml_time_us() - t_draft_decode_start;
+                profile->n_decode_calls++;
+                profile->n_decode_tokens += batch.n_tokens;
+            }
 
             prompt_dft.push_back(id);
         }
 
         if (!spec->vocab_cmpt) {
+            const auto t_start = ggml_time_us();
+
             std::string detokenized = common_detokenize(ctx_dft, result, true);
             detokenized = replace_to_tgt(detokenized);
             LOG_DBG("draft->main detokenized string: '%s'\n", detokenized.c_str());
             result = common_tokenize(ctx_tgt, detokenized, false, true);
             if (result.size() > (size_t)params.n_max) {
                 result.resize(params.n_max);
+            }
+
+            if (profile) {
+                profile->t_vocab_convert_us += ggml_time_us() - t_start;
             }
         }
     }
@@ -448,12 +545,14 @@ struct common_speculative_state_eagle3 : public common_speculative_state {
             const common_params_speculative & params,
             const llama_tokens & prompt_tgt,
             llama_token id_last,
-            llama_tokens & draft_tokens) override {
+            llama_tokens & draft_tokens,
+            common_speculative_draft_profile * profile) override {
         // TODO: implement
         GGML_UNUSED(params);
         GGML_UNUSED(prompt_tgt);
         GGML_UNUSED(id_last);
         GGML_UNUSED(draft_tokens);
+        GGML_UNUSED(profile);
     }
 
     void accept(uint16_t n_accepted) override {
@@ -479,10 +578,12 @@ struct common_speculative_state_ngram_simple : public common_speculative_state {
             const common_params_speculative & params,
             const llama_tokens & prompt_tgt,
             llama_token id_last,
-            llama_tokens & result) override {
+            llama_tokens & result,
+            common_speculative_draft_profile * profile) override {
 
         result = common_ngram_simple_draft(config, prompt_tgt, id_last);
         GGML_UNUSED(params);
+        GGML_UNUSED(profile);
     }
 
     void accept(uint16_t n_accepted) override {
@@ -508,9 +609,11 @@ struct common_speculative_state_ngram_map_k : public common_speculative_state {
             const common_params_speculative & params,
             const llama_tokens & prompt_tgt,
             llama_token id_last,
-            llama_tokens & result) override {
+            llama_tokens & result,
+            common_speculative_draft_profile * profile) override {
         common_ngram_map_draft(map, prompt_tgt, id_last, result);
         GGML_UNUSED(params);
+        GGML_UNUSED(profile);
     }
 
     void accept(uint16_t n_accepted) override {
@@ -570,8 +673,10 @@ struct common_speculative_state_ngram_mod : public common_speculative_state {
             const common_params_speculative & params,
             const llama_tokens & prompt_tgt,
             llama_token id_last,
-            llama_tokens & result) override {
+            llama_tokens & result,
+            common_speculative_draft_profile * profile) override {
         GGML_UNUSED(params);
+        GGML_UNUSED(profile);
 
         n_draft_last = 0;
 
@@ -694,8 +799,10 @@ struct common_speculative_state_ngram_cache : public common_speculative_state {
             const common_params_speculative & params,
             const llama_tokens & prompt_tgt,
             llama_token id_last,
-            llama_tokens & result) override {
+            llama_tokens & result,
+            common_speculative_draft_profile * profile) override {
         GGML_UNUSED(params);
+        GGML_UNUSED(profile);
 
         if (cache_size < prompt_tgt.size() + 1) {
             llama_tokens tokens_new;
@@ -996,7 +1103,8 @@ llama_tokens common_speculative_draft(
         common_speculative * spec,
         const common_params_speculative & params,
         const llama_tokens & prompt_tgt, // specified in target model vocab
-        llama_token id_last) {
+        llama_token id_last,
+        common_speculative_draft_profile * profile) {
     llama_tokens result;
 
     spec->curr_impl = nullptr; // reset current implementation
@@ -1004,7 +1112,7 @@ llama_tokens common_speculative_draft(
     for (auto & impl : spec->impls) {
         {
             common_time_meas tm(impl->t_draft_us, !impl->gen_perf);
-            impl->draft(params, prompt_tgt, id_last, result);
+            impl->draft(params, prompt_tgt, id_last, result, profile);
             impl->n_call_draft++;
         }
 

@@ -1,0 +1,9 @@
+metric,value
+framework_overhead_ms,609.424000
+speculative_vs_true_speedup,0.842270
+speculative_vs_zero_draft_speedup,2.099389
+target_verify_reduction_ms,-23.620000
+draft_overhead_ms,570.383000
+net_time_saved_ms,-399.647000
+accepted_tokens_per_drafted_token,1.000000
+accepted_tokens_per_sample,3.000000
